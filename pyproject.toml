@@ -12,6 +12,7 @@ flask-migrate = "^4.0.5"
 flask = "^2.3.3"
 black = "^23.9.1"
 pg8000 = "^1.30.2"
+aiohttp = "^3.8.5"
 
 
 [build-system]

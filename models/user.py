@@ -2,7 +2,7 @@ from typing import List
 
 from sqlalchemy import (
     JSON,
-    String
+    String,
 )
 from sqlalchemy.orm import (
     Mapped,
@@ -17,14 +17,14 @@ class User(db.Model):
     __tablename__ = "users"
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String(32),
-                                      unique=True,
+                                      unique=False,
                                       nullable=False)
     username: Mapped[str] = mapped_column(String(32),
-                                          unique=True,
+                                          unique=False,
                                           nullable=False)
     email: Mapped[str] = mapped_column(String(120),
                                        nullable=False,
-                                       unique=True)
+                                       unique=False)
     address: Mapped[dict] = mapped_column(JSON(),
                                           nullable=True,
                                           unique=False)
@@ -37,7 +37,7 @@ class User(db.Model):
     company: Mapped[dict] = mapped_column(JSON(),
                                           nullable=True,
                                           unique=False)
-    posts: Mapped[List["Post"]] = relationship(back_populates="users",
+    posts: Mapped[List["Post"]] = relationship(back_populates="user",
                                                uselist=True)
 
     def __repr__(self) -> str:

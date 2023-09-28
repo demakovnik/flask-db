@@ -1,8 +1,8 @@
-"""add databases
+"""init
 
-Revision ID: c7eca02d5efe
+Revision ID: 6fb9fbbaa739
 Revises: 
-Create Date: 2023-09-28 14:10:41.505867
+Create Date: 2023-09-28 17:55:55.441919
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = "c7eca02d5efe"
+revision = "6fb9fbbaa739"
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -37,9 +37,6 @@ def upgrade():
         sa.Column("website", sa.String(length=32), nullable=True),
         sa.Column("company", sa.JSON(), nullable=True),
         sa.PrimaryKeyConstraint("id"),
-        sa.UniqueConstraint("email"),
-        sa.UniqueConstraint("name"),
-        sa.UniqueConstraint("username"),
     )
     op.create_table(
         "posts",

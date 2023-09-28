@@ -5,19 +5,22 @@ from models import db
 from views.items import items_app
 from views.products import products_app
 
+
+
+
+
+
 app = Flask(__name__)
 # app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
-config_name = getenv("CONFIG_NAME", "DevelopmentConfig")
+#config_name = getenv("CONFIG_NAME", "DevelopmentConfig")
+config_name = getenv("CONFIG_NAME", "Config")
 app.config.from_object(f"config.{config_name}")
 
 db.init_app(app=app)
 migrate = Migrate(app=app, db=db)
 
-
-
 app.register_blueprint(items_app)
 app.register_blueprint(products_app)
-
 
 
 @app.get("/", endpoint="index")
