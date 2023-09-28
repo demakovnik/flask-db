@@ -93,7 +93,7 @@ class User(Base):
     posts = relationship(
         "Post",
         back_populates="user",
-        uselist=True,
+        uselist=True
     )
 
     def __str__(self):

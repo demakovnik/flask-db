@@ -6,7 +6,8 @@ DB_FILE_PATH = BASE_DIR / "shop.db"
 class Config:
     DEBUG = False
     TESTING = False
-    SQLALCHEMY_DATABASE_URI = f"sqlite:///{DB_FILE_PATH}"
+    #SQLALCHEMY_DATABASE_URI = f"sqlite:///{DB_FILE_PATH}"p
+    SQLALCHEMY_DATABASE_URI = f"postgresql+pg8000://postgres:password@localhost/postgres"
     SQLALCHEMY_ECHO = False
     SECRET_KEY = "edf79ba4a94387c24e640247930f72d8657fc5a02d791ed5943aa0956702c9fe"
 
