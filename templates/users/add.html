@@ -1,24 +1,24 @@
-{% extends 'products/base.html' %}
+{% extends 'users/base.html' %}
 
 {% block title %}
-  Create Product
+  Create User
 {% endblock %}
 
 {% block body %}
-  <h2>Create a new product</h2>
+  <h2>Create new user</h2>
   <div id="form-block">
     <form method="post" class="row row-cols-1">
       <div class="col">
         <label
           class="form-label"
           for="field-name"
-        >Product name</label>
+        >User name</label>
         <input
           id="field-name"
           class="form-control"
           name="product-name"
           type="text"
-          placeholder="Desktop"
+          placeholder="John"
           required="required"
         >
       </div>
@@ -30,6 +30,6 @@
   </div>
 
   <div>
-    <a href="{{ url_for('products_app.list') }}">Back to products list</a>
+    <a href="{{ url_for('users.list') }}">Back to users list</a>
   </div>
 {% endblock %}

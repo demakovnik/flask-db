@@ -2,10 +2,7 @@
 
 
 {% block head %}
-  <link
-    rel="stylesheet"
-    href="{{ url_for('static', filename='css/loading-icon.css') }}"
-  >
+
 {% endblock %}
 {% block title %}
   Index
@@ -15,12 +12,9 @@
   <h1>Hello index page</h1>
 
   <div>
-    <a href="{{ url_for("products_app.list") }}">Products list</a>
+    <a href="{{ url_for("users.list") }}">Users list</a>
   </div>
 
-  <div>
-    <h2>Demo loader spinner:</h2>
-    <div class="loader"></div>
-  </div>
+
 
 {% endblock %}

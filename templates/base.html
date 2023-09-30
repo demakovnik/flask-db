@@ -27,7 +27,7 @@
 <body>
 <nav class="navbar navbar-expand-md bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">Shop</a>
+    <a class="navbar-brand" href="/">Users app</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -43,7 +43,7 @@
       <ul class="navbar-nav me-auto">
         {% for endpoint, title in [
           ('index', 'Home page'),
-          ('products_app.list', 'Products'),
+          ('users.list', 'Users'),
         ] %}
 
           {% set path = url_for(endpoint) %}
@@ -69,7 +69,7 @@
           <ul class="dropdown-menu">
             <li><a
               class="dropdown-item"
-              href="{{ url_for('products_app.add') }}">Add item</a></li>
+              href="{{ url_for('users.add') }}">Add item</a></li>
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li>

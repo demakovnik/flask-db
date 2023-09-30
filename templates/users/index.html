@@ -1,0 +1,29 @@
+{% extends 'users/base.html' %}
+
+{% block head %}
+  {#  <link#}
+  {#    rel="stylesheet"#}
+  {#    href="{{ url_for('static', filename="css/main.css") }}"#}
+  {#  >#}
+{% endblock %}
+
+{% block title %}
+  Users List
+{% endblock %}
+
+{% block body %}
+  <h1>Users list</h1>
+  <ul class="list-group my-2">
+    {% for user in users %}
+      <li class="list-group-item"><a
+        {#        class="text-decoration-none"#}
+        class="link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+        href="{{ url_for('users.detail', user_id=user.id) }}"
+      >{{ user.name }}</a></li>
+    {% endfor %}
+  </ul>
+  <div>
+    <a href="{{ url_for('users.add') }}">Create new</a>
+  </div>
+
+{% endblock %}
