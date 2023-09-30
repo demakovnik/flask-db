@@ -1,10 +1,10 @@
 __all__ = (
     "db",
-    "Post",
+#    "Post",
     "User"
 )
 
 from .database import db
-from .post import Post
+#from .post import Post
 from .user import User
 

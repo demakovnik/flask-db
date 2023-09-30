@@ -25,20 +25,21 @@ class User(db.Model):
     email: Mapped[str] = mapped_column(String(120),
                                        nullable=False,
                                        unique=False)
-    address: Mapped[dict] = mapped_column(JSON(),
-                                          nullable=True,
-                                          unique=False)
+    # address: Mapped[dict] = mapped_column(JSON(),
+    #                                       nullable=True,
+    #                                       unique=False)
     phone: Mapped[str] = mapped_column(String(32),
                                        nullable=True,
                                        unique=False)
     website: Mapped[str] = mapped_column(String(32),
                                          nullable=True,
                                          unique=False)
-    company: Mapped[dict] = mapped_column(JSON(),
-                                          nullable=True,
-                                          unique=False)
-    posts: Mapped[List["Post"]] = relationship(back_populates="user",
-                                               uselist=True)
+    # company: Mapped[dict] = mapped_column(JSON(),
+    #                                       nullable=True,
+    #                                       unique=False)
+#    posts: Mapped[List["Post"]] = relationship(back_populates="user",
+#                                               cascade=True,
+#                                               uselist=True)
 
     def __repr__(self) -> str:
         return f"User(id={self.id!r}, name={self.name!r}, username={self.username!r})"

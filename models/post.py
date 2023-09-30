@@ -28,6 +28,7 @@ class Post(db.Model):
                                          unique=False,
                                          nullable=False)
     user: Mapped["User"] = relationship(back_populates="posts",
+                                        cascade=True,
                                         uselist=False)
 
     @property

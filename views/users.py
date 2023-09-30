@@ -29,12 +29,17 @@ def create_user():
     if request.method == "GET":
         return render_template("users/add.html")
 
-    name = request.form.get("product-name")
+    name = request.form.get("user-name")
+    username = request.form.get("user-username")
+    email = request.form.get("user-email")
+    phone = request.form.get("user-phone")
+    website = request.form.get("user-website")
     if not name:
-        raise BadRequest("field `product-name` required")
-
-    user = User(name=name)
+        raise BadRequest("field `user-name` required")
+    user = User(name=name, username=username, email=email, phone=phone, website=website)
+    print(user)
     db.session.add(user)
+
     try:
         db.session.commit()
     except IntegrityError:
@@ -45,35 +50,35 @@ def create_user():
     flash(f"User {user.name!r} created")
     # return redirect("/users/")
     # url = url_for("products_app.list")
-    url = url_for("user.detail", users=user.id)
+    url = url_for("users.detail", user_id=user.id)
     return redirect(url)
 
-def get_user_by_id(user_id: int) -> User:
-    product: User = db.get_or_404(
+def get_userby_id(user_id: int) -> User:
+    user: User = db.get_or_404(
         User,
         user_id,
         description=f"User #{user_id} not found!"
         )
-    return product
+    return user
 
 
 
 @users.get("/<int:user_id>/", endpoint="detail")
-def get_product_by_id(product_id: int):
+def get_user_by_id(user_id: int):
 
     return render_template(
         "users/detail.html",
-        user=get_user_by_id(user_id=product_id),
+        user=get_userby_id(user_id=user_id),
     )
 
 @users.route("<int:user_id>/confirm_delete/",
                     methods=["GET", "POST"],
                     endpoint="confirm_delete")
 def confirm_delete_product(user_id: int):
-    user = get_user_by_id(user_id=user_id)
+    user = get_userby_id(user_id=user_id)
     if request.method == "GET":
         return render_template("users/confirm-delete.html",
-                               user = user)
+                               user=user)
     name = user.name
     db.session.delete(user)
     db.session.commit()

@@ -9,7 +9,7 @@
     <div>Are you shure that you want to delete product: {{ user.name }}</div>
     <form method="post" class="row row-cols-1">
     <div class="col">
-        <a class="btn btn-success" href="{{ url_for('products_app.detail', user_id=user.id) }}">
+        <a class="btn btn-success" href="{{ url_for('users.detail', user_id=user.id) }}">
             Back to user
 
         </a>
