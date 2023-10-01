@@ -9,6 +9,8 @@ services:
       CONFIG_CLASS: ProductionConfig
       #postgresql+pg8000://postgres:password@localhost/postgres
       SQLALCHEMY_DATABASE_URI: postgresql+pg8000://postgres:password@pg:5432/postgres
+      FLASK_APP: app.py
+      FLASK_ENV: production
     ports:
       - "8080:80"
     depends_on:
