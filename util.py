@@ -1,11 +1,9 @@
 from typing import List
 
-from sqlalchemy import create_engine, select
-from sqlalchemy.orm import sessionmaker, Session
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import select
 
 import jsonplaceholder_requests
-from config import Config
 from models import User  # , Post
 
 
