@@ -13,12 +13,6 @@ RUN poetry install --no-ansi --no-dev
 # Копирование исходного кода приложения в контейнер
 COPY . /app
 
-# Удаление файла конфигурации Nginx, поскольку будем использовать свой собственный
-#RUN rm /etc/nginx/conf.d/nginx.conf
-
-# Копирование настроек Nginx в контейнер
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
 # Устанавливаем переменные окружения
 ENV FLASK_APP=app.py
 ENV FLASK_ENV=production
